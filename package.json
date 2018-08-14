@@ -1,6 +1,9 @@
 {
   "name": "js-library-boilerplate",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0-development",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "description": "A javascript library boilerplate to start new projects",
   "main": "index.js",
   "scripts": {
@@ -21,10 +24,10 @@
     "test:coverage": "nyc npm test",
     "check:coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95 --statements 95",
     "coverage": "npm run test:coverage && nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "commit": "git-cz",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "precommit": "npm run test:coverage && npm run check:coverage",
-    "prepush": "npm run lint",
+    "commit": "npx git-cz",
+    "travis-deploy-once": " npx travis-deploy-once",
+    "semantic-release": "npx semantic-release",
+    "prepush": "npm run test:coverage && npm run check:coverage && npm run lint",
     "prepublish": "npm run build:all"
   },
   "files": [
@@ -40,8 +43,10 @@
       "src/**/*.spec.js"
     ]
   },
-  "czConfig": {
-    "path": "node_modules/cz-conventional-changelog"
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "repository": {
     "type": "git",
@@ -65,12 +70,15 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.5",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
-    "codecov.io": "^0.1.6",
+    "codecov": "^3.0.4",
     "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
     "documentation": "^8.1.0",
     "eslint": "^5.3.0",
     "eslint-config-standard": "^11.0.0",
@@ -87,9 +95,10 @@
     "nyc": "^12.0.2",
     "opener": "^1.4.3",
     "rimraf": "^2.6.2",
-    "semantic-release": "^15.9.6",
+    "semantic-release": "^15.9.8",
     "sinon": "^6.1.4",
     "sinon-chai": "^3.2.0",
+    "travis-deploy-once": "^5.0.2",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
   },

@@ -51,8 +51,6 @@ module.exports = {
   },
   globals: {
     expect: true,
-    config: true,
-    user: true,
     sinon: true
   }
 }
