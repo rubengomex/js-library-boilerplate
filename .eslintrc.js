@@ -12,7 +12,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['mocha'],
+  plugins: ['mocha', 'prettier'],
   rules: {
     // allow paren-less arrow functions
     'arrow-parens': 0,
@@ -49,7 +49,9 @@ module.exports = {
     ],
     'no-unused-expressions': 'off',
     //mocha/testing rules
-    'mocha/no-exclusive-tests': 'error'
+    'mocha/no-exclusive-tests': 'error',
+    // enable prettier (un comment this line to appear as error in run time)
+    //'prettier/prettier': 'error'
   },
   globals: {
     expect: true,

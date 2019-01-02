@@ -1,0 +1,6 @@
+semi: false
+singleQuote: true
+eslintIntegration: true
+stylelintIntegration: true
+printWidth: 100
+disableLanguages: []
